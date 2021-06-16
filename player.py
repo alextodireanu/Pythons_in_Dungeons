@@ -8,14 +8,14 @@ class Player:
     def attack(self):
         pass
 
+
 class Warrior(Player):
-    def __init__(self, name, mana, health, damage):
-        super().__init__(name, mana, health, damage)
-        self.health += 10
-        self.damage += 10
+    def __init__(self, name):
+        super().__init__(name, 0, 100, 50)
+        self.name = name
+
 
 class Wizard(Player):
-    def __init__(self, name, mana, health, damage):
-        super().__init__(name, mana, health, damage)
-        self.mana += 10
-        self.health += 10
+    def __init__(self, name):
+        super().__init__(name, 100, 50, 25)
+        self.name = name
