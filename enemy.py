@@ -10,16 +10,19 @@ class Enemy:
 class Goblin(Enemy):
     def __init__(self):
         super().__init__(5, 100)
-        print("My poisonous arrows will kill you!")
+        print("""\nI'm a vengeful goblin.
+My poisonous arrows will pierce you!""")
 
 
 class Orc(Enemy):
     def __init__(self):
         super().__init__(15, 100)
-        print("I will cut you down!")
+        print("""\nI'm the Dark Lord orc captain.
+Your head will be my trophy!""")
 
 
 class Wrath(Enemy):
     def __init__(self):
         super().__init__(10, 100)
-        print("You are no match to my powers!")
+        print("""\nI'm one of the nine dead kings."
+You are no match to my powers!""")
