@@ -28,7 +28,7 @@ class Utils:
         winsound.PlaySound(sound, winsound.SND_ASYNC + winsound.SND_LOOP)
         os.system('cls')
         world_intro_message = f"""
-        \t\t\t The Hinderlands are in grave danger and only you can stand a chance against the enemy armies\n"""
+        \t\t\tThe Hinderlands are in grave danger and only you can stand a chance against the enemy armies\n"""
         print(world_intro_message)
         crossroad_options = ('village', 'forest', 'desert')
         print("You are at a crossroads with 3 possible paths:")
@@ -36,16 +36,20 @@ class Utils:
         for option in crossroad_options:
             print(f'{index}.{option}')
             index += 1
-        chosen_path = int(input("Choose your destiny: 1,2 or 3? -> "))
-        if chosen_path == 1:
-            Utils.village()
-        elif chosen_path == 2:
-            Utils.forest()
-        elif chosen_path == 3:
-            Utils.desert()
+        try:
+            chosen_path = int(input("Choose your destiny: 1,2 or 3? -> "))
+            if chosen_path == 1:
+                Utils.village()
+            elif chosen_path == 2:
+                Utils.forest()
+            elif chosen_path == 3:
+                Utils.desert()
+            else:
+                print("Incorrect choice")
+        except ValueError:
+            print("Only numbers are accepted")
         else:
-            print("Incorrect choice")
-        return chosen_path
+            return chosen_path
 
     @staticmethod
     def warrior():
@@ -82,8 +86,7 @@ class Utils:
     @staticmethod
     def village():
         os.system('cls')
-        village_intro_message = f"""
-        \t\t\t Your adventure starts in the village of Bannockburn\n"""
+        village_intro_message = "\t\t\t Your adventure starts in the village of Bannockburn\n"
         print(village_intro_message)
         Utils.random_enemy()
         return
@@ -91,8 +94,7 @@ class Utils:
     @staticmethod
     def forest():
         os.system('cls')
-        forest_intro_message = f"""
-        \t\t\t Your adventure starts in the Wolfbel forest\n"""
+        forest_intro_message = "\t\t\t Your adventure starts in the Wolfbel forest\n"
         print(forest_intro_message)
         print(Utils.random_enemy())
         return
@@ -100,8 +102,7 @@ class Utils:
     @staticmethod
     def desert():
         os.system('cls')
-        desert_intro_message = f"""
-        \t\t\t Your adeventure starts in the Dead Wasteland\n"""
+        desert_intro_message = "\t\t\t Your adeventure starts in the Dead Wasteland\n"
         print(desert_intro_message)
         Utils.random_enemy()
         return
@@ -122,7 +123,6 @@ class Utils:
                 if chosen_fighter == 1:
                     Utils.warrior()
                     Utils.world_intro()
-
                 elif chosen_fighter == 2:
                     Utils.wizard()
                     Utils.world_intro()
