@@ -17,7 +17,7 @@ My poisonous arrows will pierce you!""")
     speed = 2
 
     def attack(self):
-        print("The enemy gobling is attacking!")
+        print("The enemy goblin is attacking!")
 
 
 class Orc(Enemy):

@@ -39,6 +39,13 @@ class Battle:
                     if next_turn.upper().strip() == "A":
                         if warrior_mana <= 10:
                             print("You don't have enough mana to attack!")
+                            goblin.attack()
+                            warrior_health -= goblin_damage
+                            print(f"\nDirect hit! -{goblin_damage} HP")
+                            print(f"\nYou have {warrior_health} HP left!")
+                            if warrior_health <= 0:
+                                print("Game over!")
+                                battle_start = False
                         else:
                             warrior.attack()
                             print(f"\nDirect hit, {warrior_damage} damage dealt!")
@@ -46,23 +53,30 @@ class Battle:
                             warrior_mana -= 10
                             print(f"You have {warrior_mana} mana left!")
 
-                        if goblin_health <= 0:
-                            battle_start = False
-                            print("\nThe goblin is no match to your power, enemy defeated!")
-                            next_scene = input("next scene ->")
-                        else:
-                            goblin.attack()
-                            print(f"\nDirect hit! -{goblin_damage} HP")
-                            warrior_health -= goblin_damage
-                            if warrior_health <= 0:
+                            if goblin_health <= 0:
                                 battle_start = False
-                                print("\nGame over!")
+                                print("\nThe goblin is no match to your power, enemy defeated!")
+                                next_scene = input("next scene ->")
                             else:
-                                print(f"\nYou have {warrior_health} HP left!")
+                                goblin.attack()
+                                print(f"\nDirect hit! -{goblin_damage} HP")
+                                warrior_health -= goblin_damage
+                                if warrior_health <= 0:
+                                    print("\nGame over!")
+                                    battle_start = False
+                                else:
+                                    print(f"\nYou have {warrior_health} HP left!")
 
                     elif next_turn.upper().strip() == "D":
                         if warrior_mana <= 5:
                             print("\nYou don't have enough mana to defend!")
+                            goblin.attack()
+                            warrior_health -= goblin_damage
+                            print(f"\nDirect hit! -{goblin_damage} HP")
+                            print(f"\nYou have {warrior_health} HP left!")
+                            if warrior_health <= 0:
+                                print("Game over!")
+                                battle_start = False
                         else:
                             warrior.defend()
                             warrior_mana -= 5
@@ -71,11 +85,11 @@ class Battle:
                             warrior_health -= int(goblin_damage / 2)
                             print(f"\nYou defended yourself and got less damage! -{goblin_damage / 2} HP")
 
-                        if warrior_health <= 0:
-                            print("\nGame over!")
-                            battle_start = False
-                        else:
-                            print(f"\nYou have {warrior_health} HP left!")
+                            if warrior_health <= 0:
+                                battle_start = False
+                                print("\nGame over!")
+                            else:
+                                print(f"\nYou have {warrior_health} HP left!")
 
             elif chosen_fighter == 2:
                 if first_round:
@@ -90,10 +104,6 @@ class Battle:
                             wizard_mana -= 10
                             print(f"\nYou have {wizard_mana} mana left!")
                             goblin_health -= wizard_damage
-                            goblin.attack()
-                            print(f"\nDirect hit! -{goblin_damage} HP")
-                            wizard_health -= goblin_damage
-                            print(f"\nYou have {wizard_health} mana left!")
 
                         elif action.upper().strip() == "D":
                             first_round = False
@@ -118,6 +128,13 @@ class Battle:
                     if next_turn.upper().strip() == "A":
                         if wizard_mana <= 10:
                             print("You don't have enough mana to attack!")
+                            goblin.attack()
+                            wizard_health -= goblin_damage
+                            print(f"\nDirect hit! -{goblin_damage} HP")
+                            print(f"\nYou have {wizard_health} HP left!")
+                            if wizard_health <= 0:
+                                print("Game over!")
+                                battle_start = False
                         else:
                             wizard.attack()
                             print(f"\nDirect hit, {wizard_damage} damage dealt!")
@@ -125,23 +142,30 @@ class Battle:
                             wizard_mana -= 10
                             print(f"You have {wizard_mana} mana left!")
 
-                        if goblin_health <= 0:
-                            battle_start = False
-                            print("\nThe goblin is no match to your power, enemy defeated!")
-                            next_scene = input("next scene ->")
-                        else:
-                            goblin.attack()
-                            print(f"\nDirect hit! -{goblin_damage} HP")
-                            wizard_health -= goblin_damage
-                            if wizard_health <= 0:
+                            if goblin_health <= 0:
                                 battle_start = False
-                                print("Game over!")
+                                print("\nThe goblin is no match to your power, enemy defeated!")
+                                next_scene = input("next scene ->")
                             else:
-                                print(f"\nYou have {wizard_health} HP left!")
+                                goblin.attack()
+                                print(f"\nDirect hit! -{goblin_damage} HP")
+                                wizard_health -= goblin_damage
+                                if wizard_health <= 0:
+                                    print("Game over!")
+                                    battle_start = False
+                                else:
+                                    print(f"\nYou have {wizard_health} HP left!")
 
                     elif next_turn.upper().strip() == "D":
                         if wizard_mana <= 5:
                             print("You don't have enough mana to defend!")
+                            goblin.attack()
+                            wizard_health -= goblin_damage
+                            print(f"\nDirect hit! -{goblin_damage} HP")
+                            print(f"\nYou have {wizard_health} HP left!")
+                            if wizard_health <= 0:
+                                print("Game over!")
+                                battle_start = False
                         else:
                             wizard.defend()
                             wizard_mana -= 5
@@ -150,11 +174,11 @@ class Battle:
                             wizard_health -= int(goblin_damage / 2)
                             print(f"\nYou defended yourself and got less damage! -{goblin_damage / 2} HP")
 
-                        if wizard_health <= 0:
-                            battle_start = False
-                            print("Game over!")
-                        else:
-                            print(f"You have {wizard_health} HP left!")
+                            if wizard_health <= 0:
+                                print("Game over!")
+                                battle_start = False
+                            else:
+                                print(f"You have {wizard_health} HP left!")
 
     @staticmethod
     def orc_fight():
@@ -217,6 +241,13 @@ class Battle:
                     if next_turn.upper().strip() == "A":
                         if warrior_mana <= 10:
                             print("You don't have enough mana to attack!")
+                            orc.attack()
+                            warrior_health -= orc_damage
+                            print(f"\nDirect hit! -{orc_damage} HP")
+                            print(f"\nYou have {warrior_health} HP left!")
+                            if warrior_health <= 0:
+                                print("Game over!")
+                                battle_start = False
                         else:
                             warrior.attack()
                             orc_health -= warrior_damage
@@ -224,23 +255,31 @@ class Battle:
                             warrior_mana -= 10
                             print(f"\nYou have {warrior_mana} mana left!")
 
-                        if orc_health <= 0:
-                            battle_start = False
-                            print("\nThe orc is no match to your power, enemy defeated!")
-                            next_scene = input("next scene ->")
-                        else:
-                            orc.attack()
-                            print(f"\nDirect hit! -{orc_damage} HP")
-                            warrior_health -= orc_damage
-                            if warrior_health <= 0:
+                            if orc_health <= 0:
                                 battle_start = False
-                                print("Game over!")
+                                print("\nThe orc is no match to your power, enemy defeated!")
+                                next_scene = input("next scene ->")
                             else:
-                                print(f"\nYou have {warrior_health} HP left!")
+                                orc.attack()
+                                print(f"\nDirect hit! -{orc_damage} HP")
+                                warrior_health -= orc_damage
+                                if warrior_health <= 0:
+                                    print("Game over!")
+                                    battle_start = False
+                                else:
+                                    print(f"\nYou have {warrior_health} HP left!")
 
                     elif next_turn.upper().strip() == "D":
                         if warrior_mana <= 5:
                             print("You don't have enough mana to defend!")
+                            orc.attack()
+                            warrior_health -= orc_damage
+                            print(f"\nDirect hit! -{orc_damage} HP")
+                            print(f"\nYou have {warrior_health} HP left!")
+                            if warrior_health <= 0:
+                                print("Game over!")
+                                battle_start = False
+
                         else:
                             warrior.defend()
                             warrior_mana -= 5
@@ -249,11 +288,11 @@ class Battle:
                             warrior_health -= int(orc_damage / 2)
                             print(f"\nYou defended yourself and got less damage! -{orc_damage / 2} HP")
 
-                        if warrior_health <= 0:
-                            battle_start = False
-                            print("Game over!")
-                        else:
-                            print(f"You have {warrior_health} HP left!")
+                            if warrior_health <= 0:
+                                print("Game over!")
+                                battle_start = False
+                            else:
+                                print(f"You have {warrior_health} HP left!")
 
             elif chosen_fighter == 2:
                 if first_round:
@@ -285,6 +324,13 @@ class Battle:
                     if next_turn.upper().strip() == "A":
                         if wizard_mana <= 10:
                             print("You don't have enough mana to attack!")
+                            orc.attack()
+                            wizard_health -= orc_damage
+                            print(f"\nDirect hit! -{orc_damage} HP")
+                            print(f"\nYou have {wizard_health} HP left!")
+                            if wizard_health <= 0:
+                                print("Game over!")
+                                battle_start = False
                         else:
                             wizard.attack()
                             print(f"\nDirect hit, {wizard_damage} damage dealt!")
@@ -292,23 +338,30 @@ class Battle:
                             print(f"\nYou have {wizard_mana} mana left!")
                             orc_health -= wizard_damage
 
-                        if orc_health <= 0:
-                            battle_start = False
-                            print("\nThe orc is no match to your power, enemy defeated!")
-                            next_scene = input("next scene ->")
-                        else:
-                            orc.attack()
-                            print(f"\nDirect hit! -{orc_damage} HP")
-                            wizard_health -= orc_damage
-                            if wizard_health <= 0:
+                            if orc_health <= 0:
                                 battle_start = False
-                                print("Game over!")
+                                print("\nThe orc is no match to your power, enemy defeated!")
+                                next_scene = input("next scene ->")
                             else:
-                                print(f"\nYou have {wizard_health} HP left.")
+                                orc.attack()
+                                print(f"\nDirect hit! -{orc_damage} HP")
+                                wizard_health -= orc_damage
+                                if wizard_health <= 0:
+                                    print("Game over!")
+                                    battle_start = False
+                                else:
+                                    print(f"\nYou have {wizard_health} HP left.")
 
                     elif next_turn.upper().strip() == "D":
                         if wizard_mana <= 5:
                             print("You don't have enough mana to defend!")
+                            orc.attack()
+                            wizard_health -= orc_damage
+                            print(f"\nDirect hit! -{orc_damage} HP")
+                            print(f"\nYou have {wizard_health} HP left!")
+                            if wizard_health <= 0:
+                                print("Game over!")
+                                battle_start = False
                         else:
                             wizard.defend()
                             wizard_mana -= 5
@@ -317,11 +370,11 @@ class Battle:
                             wizard_health -= int(orc_damage / 2)
                             print(f"\nYou defended yourself and got less damage! -{orc_damage / 2} HP")
 
-                        if wizard_health <= 0:
-                            battle_start = False
-                            print("Game over!")
-                        else:
-                            print(f"\nYou have {wizard_health} HP left.")
+                            if wizard_health <= 0:
+                                print("Game over!")
+                                battle_start = False
+                            else:
+                                print(f"\nYou have {wizard_health} HP left.")
 
     @staticmethod
     def wraith_fight():
@@ -356,6 +409,13 @@ class Battle:
                     if next_turn.upper().strip() == "A":
                         if warrior_mana <= 10:
                             print("You don't have enough mana to attack!")
+                            wraith.attack()
+                            warrior_health -= wraith_damage
+                            print(f"\nDirect hit! -{wraith_damage} HP")
+                            print(f"\nYou have {warrior_health} HP left!")
+                            if warrior_health <= 0:
+                                print("Game over!")
+                                battle_start = False
                         else:
                             warrior.attack()
                             print(f"\nDirect hit, {warrior_damage} damage dealt!")
@@ -363,23 +423,30 @@ class Battle:
                             print(f"\nYou have {warrior_mana} mana left!")
                             wraith_health -= warrior_damage
 
-                        if wraith_health <= 0:
-                            battle_start = False
-                            print("\nThe wraith is no match to your power, enemy defeated!")
-                            next_scene = input("next scene ->")
-                        else:
-                            wraith.attack()
-                            print(f"\nDirect hit! -{wraith_damage} HP")
-                            warrior_health -= wraith_damage
-                            if warrior_health <= 0:
+                            if wraith_health <= 0:
                                 battle_start = False
-                                print("Game over!")
+                                print("\nThe wraith is no match to your power, enemy defeated!")
+                                next_scene = input("next scene ->")
                             else:
-                                print(f"\nYou have {warrior_health} HP left!")
+                                wraith.attack()
+                                print(f"\nDirect hit! -{wraith_damage} HP")
+                                warrior_health -= wraith_damage
+                                if warrior_health <= 0:
+                                    print("Game over!")
+                                    battle_start = False
+                                else:
+                                    print(f"\nYou have {warrior_health} HP left!")
 
                     elif next_turn.upper().strip() == "D":
                         if warrior_mana <= 5:
                             print("You don't have enough mana to defend!")
+                            wraith.attack()
+                            warrior_health -= wraith_damage
+                            print(f"\nDirect hit! -{wraith_damage} HP")
+                            print(f"\nYou have {warrior_health} HP left!")
+                            if warrior_health <= 0:
+                                print("Game over!")
+                                battle_start = False
                         else:
                             warrior.defend()
                             warrior_mana -= 5
@@ -388,11 +455,11 @@ class Battle:
                             warrior_health -= int(wraith_damage / 2)
                             print(f"\nYou defended yourself and got less damage! -{wraith_damage / 2} HP")
 
-                        if warrior_health <= 0:
-                            battle_start = False
-                            print("Game over!")
-                        else:
-                            print(f"\nYou have {warrior_health} HP left!")
+                            if warrior_health <= 0:
+                                print("Game over!")
+                                battle_start = False
+                            else:
+                                print(f"\nYou have {warrior_health} HP left!")
 
             elif chosen_fighter == 2:
                 if first_round:
@@ -400,13 +467,20 @@ class Battle:
                     first_round = False
                     wraith.attack()
                     print(f"\nDirect hit! -{wraith_damage} HP")
-                    warrior_health -= wraith_damage
-                    print(f"\nYou have {warrior_health} HP left!")
+                    wizard_health -= wraith_damage
+                    print(f"\nYou have {wizard_health} HP left!")
                 else:
                     next_turn = input("\nYour turn! Type A to attack, D to defend -> ")
                     if next_turn.upper().strip() == "A":
                         if wizard_mana <= 10:
                             print("You don't have enough mana to attack!")
+                            wraith.attack()
+                            wizard_health -= wraith_damage
+                            print(f"\nDirect hit! -{wraith_damage} HP")
+                            print(f"\nYou have {wizard_health} HP left!")
+                            if wizard_health <= 0:
+                                print("Game over!")
+                                battle_start = False
                         else:
                             wizard.attack()
                             print(f"\nDirect hit, {wizard_damage} damage dealt!")
@@ -414,23 +488,30 @@ class Battle:
                             print(f"You have {wizard_mana} mana left!")
                             wraith_health -= wizard_damage
 
-                        if wraith_health <= 0:
-                            battle_start = False
-                            print("\nThe orc is no match to your power, enemy defeated!")
-                            next_scene = input("next scene ->")
-                        else:
-                            wraith.attack()
-                            print(f"\nDirect hit! -{wraith_damage} HP")
-                            wizard_health -= wraith_damage
-                            if wizard_health <= 0:
+                            if wraith_health <= 0:
                                 battle_start = False
-                                print("Game over!")
+                                print("\nThe orc is no match to your power, enemy defeated!")
+                                next_scene = input("next scene ->")
                             else:
-                                print(f"\nYou have {wizard_health} HP left.")
+                                wraith.attack()
+                                print(f"\nDirect hit! -{wraith_damage} HP")
+                                wizard_health -= wraith_damage
+                                if wizard_health <= 0:
+                                    print("Game over!")
+                                    battle_start = False
+                                else:
+                                    print(f"\nYou have {wizard_health} HP left.")
 
                     elif next_turn.upper().strip() == "D":
                         if wizard_mana <= 5:
                             print("You don't have enough mana to defend!")
+                            wraith.attack()
+                            wizard_health -= wraith_damage
+                            print(f"\nDirect hit! -{wraith_damage} HP")
+                            print(f"\nYou have {wizard_health} HP left!")
+                            if wizard_health <= 0:
+                                print("Game over!")
+                                battle_start = False
                         else:
                             wizard.defend()
                             wizard_mana -= 5
@@ -439,11 +520,12 @@ class Battle:
                             wizard_health -= int(wraith_damage / 2)
                             print(f"\nYou defended yourself and got less damage! -{wraith_damage / 2} HP")
 
-                        if wizard_health <= 0:
-                            battle_start = False
-                            print("Game over!")
-                        else:
-                            print(f"\nYou have {wizard_health} HP left.")
+                            if wizard_health <= 0:
+                                print("Game over!")
+                                next = input("->")
+                                battle_start = False
+                            else:
+                                print(f"\nYou have {wizard_health} HP left.")
 
     @staticmethod
     def battle_start():
