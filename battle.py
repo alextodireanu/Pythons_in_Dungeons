@@ -83,7 +83,7 @@ class Battle:
                             print(f"\nYou have {warrior_mana} mana left!")
                             goblin.attack()
                             warrior_health -= int(goblin_damage / 2)
-                            print(f"\nYou defended yourself and got less damage! -{goblin_damage / 2} HP")
+                            print(f"\nYou defended yourself and got less damage! -{int(goblin_damage / 2)} HP")
 
                             if warrior_health <= 0:
                                 battle_start = False
@@ -112,7 +112,7 @@ class Battle:
                             print(f"\n You have {wizard_mana} mana left!")
                             goblin.attack()
                             wizard_health -= int(goblin_damage / 2)
-                            print(f"\nYou defended yourself and got less damage! -{goblin_damage / 2} HP")
+                            print(f"\nYou defended yourself and got less damage! -{int(goblin_damage / 2)} HP")
                             print(f"You have {wizard_health} HP left!")
 
                     elif random_number == 1:
@@ -172,7 +172,7 @@ class Battle:
                             print(f"You have {wizard_mana} mana left!")
                             goblin.attack()
                             wizard_health -= int(goblin_damage / 2)
-                            print(f"\nYou defended yourself and got less damage! -{goblin_damage / 2} HP")
+                            print(f"\nYou defended yourself and got less damage! -{int(goblin_damage / 2)} HP")
 
                             if wizard_health <= 0:
                                 print("Game over!")
@@ -225,7 +225,7 @@ class Battle:
                             print(f"\n You have {warrior_mana} mana left!")
                             orc.attack()
                             warrior_health -= int(orc_damage / 2)
-                            print(f"\nYou defended yourself and got less damage! -{orc_damage / 2} HP")
+                            print(f"\nYou defended yourself and got less damage! -{int(orc_damage / 2)} HP")
                             print(f"\nYou have {warrior_health} HP left!")
 
                     elif random_number == 1:
@@ -286,7 +286,7 @@ class Battle:
                             print(f"You have{warrior_mana} mana left!")
                             orc.attack()
                             warrior_health -= int(orc_damage / 2)
-                            print(f"\nYou defended yourself and got less damage! -{orc_damage / 2} HP")
+                            print(f"\nYou defended yourself and got less damage! -{int(orc_damage / 2)} HP")
 
                             if warrior_health <= 0:
                                 print("Game over!")
@@ -317,7 +317,7 @@ class Battle:
                         print(f"You have {wizard_mana} mana left!")
                         orc.attack()
                         wizard_health -= orc_damage
-                        print(f"\nYou defended yourself and got less damage! -{orc_damage / 2} HP")
+                        print(f"\nYou defended yourself and got less damage! -{int(orc_damage / 2)} HP")
                         print(f"\nYou have {wizard_health} HP left.")
                 else:
                     next_turn = input("\nYour turn! Type A to attack, D to defend -> ")
@@ -368,7 +368,7 @@ class Battle:
                             print(f"You have {wizard_mana} mana left!")
                             orc.attack()
                             wizard_health -= int(orc_damage / 2)
-                            print(f"\nYou defended yourself and got less damage! -{orc_damage / 2} HP")
+                            print(f"\nYou defended yourself and got less damage! -{int(orc_damage / 2)} HP")
 
                             if wizard_health <= 0:
                                 print("Game over!")
@@ -453,7 +453,7 @@ class Battle:
                             print(f"You have {warrior_mana} mana left!")
                             wraith.attack()
                             warrior_health -= int(wraith_damage / 2)
-                            print(f"\nYou defended yourself and got less damage! -{wraith_damage / 2} HP")
+                            print(f"\nYou defended yourself and got less damage! -{int(wraith_damage / 2)} HP")
 
                             if warrior_health <= 0:
                                 print("Game over!")
@@ -518,7 +518,7 @@ class Battle:
                             print(f"You have {wizard_mana} mana left!")
                             wraith.attack()
                             wizard_health -= int(wraith_damage / 2)
-                            print(f"\nYou defended yourself and got less damage! -{wraith_damage / 2} HP")
+                            print(f"\nYou defended yourself and got less damage! -{int(wraith_damage / 2)} HP")
 
                             if wizard_health <= 0:
                                 print("Game over!")

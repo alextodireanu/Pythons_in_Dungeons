@@ -1,7 +1,8 @@
 class Enemy:
-    def __init__(self, damage, health):
+    def __init__(self, damage, health, speed):
         self.damage = damage
         self.health = health
+        self.speed = speed
 
     def attack(self):
         print("The enemy is attacking")
@@ -9,12 +10,9 @@ class Enemy:
 
 class Goblin(Enemy):
     def __init__(self):
-        super().__init__(10, 40)
+        super().__init__(10, 40, 2)
         print("""\nI'm a vengeful goblin.
 My poisonous arrows will pierce you!""")
-    damage = 10
-    health = 40
-    speed = 2
 
     def attack(self):
         print("The enemy goblin is attacking!")
@@ -22,12 +20,9 @@ My poisonous arrows will pierce you!""")
 
 class Orc(Enemy):
     def __init__(self):
-        super().__init__(30, 100)
+        super().__init__(30, 100, 1)
         print("""\nI'm the Dark Lord's orc captain.
 Your head will be my trophy!""")
-    damage = 30
-    health = 100
-    speed = 1
 
     def attack(self):
         print("The enemy orc is attacking!")
@@ -35,12 +30,9 @@ Your head will be my trophy!""")
 
 class Wraith(Enemy):
     def __init__(self):
-        super().__init__(20, 70)
+        super().__init__(20, 70, 3)
         print("""\nI'm one of the nine dead kings.
 You are no match to my powers!""")
-    damage = 20
-    health = 70
-    speed = 3
 
     def attack(self):
         print("The enemy wraith is attacking!")
