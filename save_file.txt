@@ -1,0 +1,3 @@
+chosen_fighter = 2
+wizard_name = elxta
+chosen_enemy = 0
